@@ -1,5 +1,7 @@
 # Colores para Skim
 
+![Icono de Colores para Skim](resources/AppIcon.png)
+
 Aplicación sencilla para macOS que cambia el tono de las páginas en **Skim oficial** con un clic. Incluye 18 tonos claros, dos grises oscuros y un botón para volver al blanco original.
 
 ## Descargar y usar
@@ -15,7 +17,7 @@ La aplicación se distribuye con firma local, sin notarización de Apple. Si mac
 - macOS 12 o posterior.
 - Skim oficial 1.6.17 o posterior para los tonos claros.
 - Skim 1.7.16 o posterior y apariencia Oscuro de macOS para los tonos oscuros.
-- El ZIP de la versión 1.0.0 está preparado para Mac con Apple Silicon. La compilación local genera un ejecutable para la arquitectura del Mac que la realiza.
+- El ZIP de la versión 1.0.1 está preparado para Mac con Apple Silicon. La compilación local genera un ejecutable para la arquitectura del Mac que la realiza.
 
 No requiere Terminal para su uso, conexión a Internet, Python ni permisos de administrador. Para compilar se necesitan las herramientas de línea de comandos de Xcode y Python 3.
 
@@ -68,6 +70,8 @@ Genera la aplicación y el ZIP en `dist/`. Para ejecutar la comprobación sin mo
 ```sh
 "dist/Colores para Skim.app/Contents/MacOS/ColoresSkim" --check
 ```
+
+El icono está incluido en `Contents/Resources/AppIcon.icns` y declarado en `Info.plist`; se conserva al descomprimir el ZIP. Su diseño es propio y no utiliza el icono oficial de Skim. El original se puede regenerar con `swift tools/generate-icon.swift`.
 
 La compilación y firma se realizan primero en una carpeta temporal para evitar que los metadatos añadidos por servicios de sincronización interfieran con la firma local.
 

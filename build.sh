@@ -5,8 +5,9 @@ project_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 build_dir=$(mktemp -d "${TMPDIR:-/tmp}/colores-skim.XXXXXX")
 trap 'rm -rf "$build_dir"' EXIT HUP INT TERM
 app_dir="$build_dir/Colores para Skim.app"
-mkdir -p "$app_dir/Contents/MacOS" "$project_dir/.build/module-cache" "$project_dir/dist"
+mkdir -p "$app_dir/Contents/Resources" "$app_dir/Contents/MacOS" "$project_dir/.build/module-cache" "$project_dir/dist"
 cp "$project_dir/resources/Info.plist" "$app_dir/Contents/Info.plist"
+cp "$project_dir/resources/AppIcon.icns" "$app_dir/Contents/Resources/AppIcon.icns"
 
 swiftc -O -module-cache-path "$project_dir/.build/module-cache" \
     "$project_dir/src/ColoresSkim.swift" -o "$app_dir/Contents/MacOS/ColoresSkim"
